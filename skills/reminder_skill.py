@@ -91,11 +91,8 @@ class ReminderSkill:
                     
                     if triggered:
                         # Mark as completed
-                        ids = [t[0] for t in triggered]
-                        cursor.execute(f"""
-                            UPDATE reminders SET status = 'completed' 
-                            WHERE id IN ({','.join(['?']*len(ids))})
-                        """, ids)
+                        ids = [(t[0],) for t in triggered]
+                        cursor.executemany("UPDATE reminders SET status = 'completed' WHERE id = ?", ids)
                         conn.commit()
                 
                 # Trigger alerts

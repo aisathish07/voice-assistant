@@ -97,7 +97,8 @@ def run_script(name: str, script_path: Path, project_path: str, url: Optional[st
             cmd,
             capture_output=True,
             text=True,
-            timeout=300  # 5 minute timeout
+            timeout=300,  # 5 minute timeout
+            shell=False # Explicitly disable shell to prevent injection
         )
         
         passed = result.returncode == 0

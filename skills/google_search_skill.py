@@ -16,7 +16,7 @@ class GoogleSearchSkill(BaseSkill):
         # I will check if there is a specific GOOGLE_API_KEY env var, if not, I'll try to use the one we have.
         
         # Actually, Custom Search needs a standard API Key (AIza...), not Client ID.
-        # The user provided "AIzaSyDOPI_NaceTSGxWavqA2kvGWDjI8nurAPM" earlier for YouTube. 
+        # The user provided a key earlier for YouTube.
         # That SAME key usually works for Custom Search if the API is enabled!
         
         api_key = os.getenv("YOUTUBE_API_KEY") # Re-using the YouTube Key which is a standard Google API Key
